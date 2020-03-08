@@ -20,6 +20,23 @@
         return;
       }
     }
+    function mutateDom() {
+      var req = new XMLHttpRequest();
+      req.open('GET', 'https://dog.ceo/api/breeds/image/random', true);
+      req.send();
+
+      req.addEventListener("load", function () {
+        var dog = JSON.parse(req.response);
+        if (dog.message) {
+          var dogImg = document.createElement('img');
+          dogImg.src = dog.message;
+          dogImg.width = '200';
+          dogImg.classList.add('border', 'border-green', 'mb-2', 'object-cover');
+          dogImg.style = 'width: 200px; height: 200px;';
+          document.getElementById('dogs').appendChild(dogImg);
+        }
+      });
+    }
   </script>
 </head>
 
@@ -34,6 +51,10 @@
   <p class="hidden" id="toggled">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime cupiditate corrupti
     adipisci dignissimos qui quidem officia maiores sint ut ex facere harum sit pariatur, voluptatum voluptas!
     Praesentium quae beatae tempore!</p>
+  <p class="text-gray-800 my-2" onclick="mutateDom()">
+    <span class="cursor-pointer hover:underline">Add random dog images</span>
+  </p>
+  <div id="dogs"></div>
 </body>
 
 </html>

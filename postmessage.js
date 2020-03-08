@@ -37,6 +37,7 @@ const listenForDomMutation = () => {
   // and what types of mutations trigger the callback
   observer.observe(document, {
     subtree: true,
+    childList: true,
     attributes: true
   });
 }
