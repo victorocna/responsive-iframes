@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive iframe</title>
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.2.0/dist/tailwind.min.css" />
+  <script src="./postmessage.js"></script>
+  <script>
+    let hidden = true;
+    function toggle() {
+      if (hidden) {
+        document.getElementById('toggled').classList.remove("hidden");
+        hidden = false;
+        return;
+      } else {
+        document.getElementById('toggled').classList.add("hidden");
+        hidden = true;
+        return;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h1 class="font-bold text-xl text-green-800">Hello world from iframe</h1>
+  <p class="text-gray-800 my-2">Here are some elements to test the iframe's responsivness</p>
+  <textarea rows="3"
+    class="w-full px-4 py-2 border border-gray-500 text-gray-800 focus:text-gray-900 focus:border-green-500"></textarea>
+  <p class="text-gray-800 my-2" onclick="toggle()">
+    <span class="cursor-pointer hover:underline">Toggle visibility</span>
+  </p>
+  <p class="hidden" id="toggled">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime cupiditate corrupti
+    adipisci dignissimos qui quidem officia maiores sint ut ex facere harum sit pariatur, voluptatum voluptas!
+    Praesentium quae beatae tempore!</p>
+</body>
+
+</html>
