@@ -1,13 +1,7 @@
-/**
- * @see https://medium.com/better-programming/how-to-automatically-resize-an-iframe-7be6bfbb1214
- */
 let height;
 const sendPostMessage = () => {
   if (height !== document.getElementsByTagName('body')[0].offsetHeight) {
     height = document.getElementsByTagName('body')[0].offsetHeight;
-
-    // FIXME: remove logs
-    console.log('new height for iframe', height);
 
     window.parent.postMessage({
       frameHeight: height
